@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html ng-app="examApp">
 
@@ -11,23 +12,25 @@
 <body>
 <div ng-controller="PersonController">
     <br/>
-   <div class="row text-center label-primary title">
-       <br/>
+
+    <div class="row text-center label-primary title">
+        <br/>
         <span class="glyphicon glyphicon-user"></span>
-       <label>Personas</label>
-   </div>
+        <label>Personas</label>
+    </div>
     <br/>
 
     <div class="row">
         <div class="col-xs-5 col-xs-offset-1">
             Filtrar por nombre:
             <input style="width: 50% !important;" type="text" ng-model="name" ng-change="findPersonName()"/>&nbsp;
-             </div>
+        </div>
         <div class="col-xs-1 col-xs-offset-3">
             <a ng-click="showUpsert();" class="btn btn-primary" role="button">Agregar persona</a>
         </div>
     </div>
     <br/>
+
     <div class="row" ng-init='list = ${list}'>
 
         <div class="col-xs-10 col-xs-offset-1">
@@ -35,13 +38,14 @@
             <div class="panel panel-default">
 
                 <table class="table">
-                   <tr>
-                       <th>Nombre</th>
-                       <th>Edad</th>
-                       <th>Direcci&oacute;n</th>
-                       <th>Informaci&oacute;n adicional</th>
-                       <th>Acciones</th><input type="hidden" id="idPerson"/>
-                   </tr>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Direcci&oacute;n</th>
+                        <th>Informaci&oacute;n adicional</th>
+                        <th>Acciones</th>
+                        <input type="hidden" id="idPerson"/>
+                    </tr>
                     <tr ng-repeat="p in list">
                         <td>{{p.name}}</td>
                         <td>{{p.age}}</td>
@@ -59,7 +63,7 @@
                             </ul>
                         </td>
                         <td><span class="glyphicon glyphicon-pencil c" ng-click="showUpsert(p.id);"></span> &nbsp;
-                        <span class="glyphicon glyphicon-trash c" ng-click="showDelete(p.id)"></span></td>
+                            <span class="glyphicon glyphicon-trash c" ng-click="showDelete(p.id)"></span></td>
                     </tr>
                 </table>
             </div>
@@ -79,7 +83,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="col-xs-10 col-xs-offset-1">
-                       &iquest;Est&aacute; seguro que desea eliminar el resigro?
+                        &iquest;Est&aacute; seguro que desea eliminar el resigro?
                     </div>
                     <br/>
                 </div>

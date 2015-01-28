@@ -4,7 +4,7 @@ angular.module('examApp', [])
         $scope.list={};
         $scope.message="";
         $scope.id;
-        $scope.path="";
+        $scope.path=$("#contextURL").val();
 
         $scope.showUpsert = function(id){
             $scope.message="";
