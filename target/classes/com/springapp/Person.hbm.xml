@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.springapp.mvc.model.Person" table="person" catalog="exam">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="255" not-null="true" unique="false" />
+        </property>
+        <property name="address" type="string">
+            <column name="ADDRESS" length="500" not-null="true" unique="false" />
+        </property>
+        <property name="age" type="string">
+            <column name="AGE" length="50" not-null="true" unique="false" />
+        </property>
+        <property name="idIdentification" type="string">
+            <column name="ID_IDENTIFICATION" length="10" not-null="false" unique="false" />
+        </property>
+        <property name="profession" type="string">
+            <column name="PROFESSION" length="100" not-null="false" unique="false" />
+        </property>
+        <property name="school" type="string">
+            <column name="SCHOOL" length="200" not-null="false" unique="false" />
+        </property>
+        <property name="phone" type="string">
+            <column name="PHONE" length="25" not-null="false" unique="false" />
+        </property>
+        <property name="gender" type="int">
+            <column name="GENDER"/>
+        </property>
+    </class>
+</hibernate-mapping>

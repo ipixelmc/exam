@@ -1,0 +1,12 @@
+.title{
+    color: aliceblue;
+    text-align: center;
+    font-size: larger;
+}
+
+.c{
+    cursor: pointer;
+}
+input[type="text"]{
+    width: 100%;
+}
