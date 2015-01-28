@@ -27,7 +27,7 @@ public class PersonController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/loadList", method = RequestMethod.GET)
+    @RequestMapping(value = "/loadList.json", method = RequestMethod.GET)
     @ResponseBody
     public String loadList() {
 
@@ -39,7 +39,7 @@ public class PersonController {
         return gson.toJson(list);
     }
 
-    @RequestMapping(value = "/findPerson", method = RequestMethod.GET)
+    @RequestMapping(value = "/findPerson.json", method = RequestMethod.GET)
     @ResponseBody
     public String findPerson(@RequestParam(required = false) Integer id) {
 
@@ -51,7 +51,7 @@ public class PersonController {
         return "";
     }
 
-    @RequestMapping(value = "/findPersonName", method = RequestMethod.GET)
+    @RequestMapping(value = "/findPersonName.json", method = RequestMethod.GET)
     @ResponseBody
     public String findPersonByName(@RequestParam String name) {
         List<Person> pList;
@@ -68,7 +68,7 @@ public class PersonController {
     }
 
 
-    @RequestMapping(value = "/upsert", method = RequestMethod.GET)
+    @RequestMapping(value = "/upsert.json", method = RequestMethod.GET)
     @ResponseBody
     public String upsertPerson(@RequestParam(required = false) Integer id,
                                @RequestParam String name,
@@ -105,7 +105,7 @@ public class PersonController {
         }
     }
 
-    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    @RequestMapping(value = "/delete.json", method = RequestMethod.GET)
     @ResponseBody
     public String deletePerson(@RequestParam Integer id) {
 

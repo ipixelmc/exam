@@ -24,11 +24,16 @@ angular.module('examApp', [])
                 $scope.name="";
             }
             $.ajax( {
-                url:$scope.path+"findPersonName?name="+$scope.name,
+                url:$scope.path+"findPersonName.json?name="+$scope.name,
                 async:false
             } )
                 .done(function(data) {
-                    $scope.list = jQuery.parseJSON(data);
+                    try{
+
+                        $scope.list = data;
+                    }catch(e) {
+                        $scope.list ={};
+                    }
                 })
                 .fail(function() {
                     $scope.message="Ha ocurrido un error al actualizar la lista";
@@ -48,12 +53,16 @@ angular.module('examApp', [])
 
         $scope.loadList = function(){
             $.ajax( {
-                url:$scope.path+"loadList",
+                url:$scope.path+"loadList.json",
                 async :false
             } )
                 .done(function(data) {
-                   $scope.list = jQuery.parseJSON(data);
+                    try{
 
+                        $scope.list = data;
+                    }catch(e) {
+                        $scope.list ={};
+                    }
                 })
                 .fail(function() {
                    $scope.message="Ha ocurrido un error al actualizar la lista";
@@ -63,9 +72,9 @@ angular.module('examApp', [])
 
         };
         $scope.findPerson= function(id){
-            $.ajax( $scope.path+"findPerson?id="+id )
+            $.ajax( $scope.path+"findPerson.json?id="+id )
                 .done(function(data) {
-                    $scope.p = jQuery.parseJSON(data);
+                    $scope.p = data;
                     $scope.$apply();
 
                 })
@@ -85,7 +94,7 @@ angular.module('examApp', [])
              params += "name="+ p.name+"&address="+ p.address+"&age="+ p.age+"&idIdentification="+ p.idIdentification+
                  "&profession="+ p.profession +"&school="+ p.school +"&phone="+ p.phone+"&gender="+ p.gender;
             $.ajax({
-              url: $scope.path+"upsert?"+params,
+              url: $scope.path+"upsert.json?"+params,
                 async: false
             })
                 .done($scope.done())
@@ -97,7 +106,7 @@ angular.module('examApp', [])
             $scope.WaitFor = true;
 
             $.ajax({
-                url :$scope.path+"delete?id="+$scope.id,
+                url :$scope.path+"delete.json?id="+$scope.id,
                 async : false
             })
                 .done($scope.done())
